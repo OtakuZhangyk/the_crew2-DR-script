@@ -18,3 +18,33 @@ the crew2 按键精灵DR脚本，仅用于刷DR盐滩
 按F5结束脚本，结束后弹窗显示统计信息（可选）：运行时间（秒），进行的游戏数，清空邮箱次数
 
 开始脚本后1分钟内未检测到绿灯会自动重新进入DR盐滩，连续运行4分钟未检测到绿灯会重新进入DR盐滩（DR比赛3分钟未完成会被自动踢出）
+
+
+**_English Version:_**
+
+the crew2 button wizard DR script, only used to brush DR salt flats
+
+Development environment: Button Wizard 2014
+Operating environment: Key Wizard 8 and above
+
+Before using the script, please adjust the variables in lines 1-4 of the script yourself. The meaning of the variables has been written in the comments.
+The script is only used for the crew2, DR, and Salt Flat events, and only the accessory level is adjusted to all 400. If the accessory level is lower than 400, you need to adjust the Delay value in lines 90-106 by yourself.
+
+When the accessory level is all 400, the salt flat score is stable between 13.0-13.2, which meets the master level requirement of 13.5.
+
+If the screen resolution is not equal to 1920*1080, please adjust the parameters of line 87 by yourself. The adjustment method is: FindColorEx 800, 350, 1080, 400,...Adjust to FindColorEx (800/1920 **X** your resolution width), (350/1080 **X** your resolution height), (1080/1920 **X** your resolution width), 
+(400/1080 **X** your resolution height).
+
+The script has not been tested on computers with different configurations and may be affected by the configurations.
+
+Before starting the script and hang up, please clear the headquarters mailbox, otherwise you may lose accessories and parts.
+
+After entering the DR salt flat (please choose the difficulty) and pressing F1 to start the script at the end of the three two one countdown at the start of the game, the script will automatically detect the green light of the start, and automatically complete the upshift and nitrogen spray operations. After the game is over, it will automatically restart by pressing N.
+
+After 17 rounds of the game (9 rounds if it is a double accessory set), the script will automatically return to the headquarters and enter the mailbox. If you set **if_clear_mailbox = 1**, the mailbox will be automatically cleared (all broken down into parts), and if you set **if_clear_mailbox = 0**, it will play Window and pause the script, after clearing the mailbox, close the mailbox interface and press the space bar to continue the script.
+
+After emptying the mailbox, the script will automatically enter the DR salt flat.
+
+Press F5 to end the script. After the end, the pop-up window displays statistical information (optional): running time (seconds), number of games played, number of empty mailboxes.
+
+After starting the script, if the green light is not detected within 1 minute, it will automatically re-enter the DR salt flat, and if the green light is not detected for 4 minutes, it will re-enter the DR salt flat (the DR game will be automatically kicked out if the DR game is not completed in 3 minutes)
