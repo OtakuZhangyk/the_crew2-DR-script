@@ -9,7 +9,7 @@ StopHotkeyMod=0
 RunOnce=0
 EnableWindow=
 MacroID=e207540f-1f06-47b6-a9c1-7b4dff13bafe
-Description=the_crew2-DR-ÑÎÌ²
+Description=the_crew2-DR-ç›æ»©//Salt flats
 Enable=1
 AutoRun=0
 [Repeat]
@@ -27,10 +27,17 @@ UEsDBBQAAgAIAIRMU1D7Ny8mUhEAAOYlAAAGABEAMDEuYm1wVVQNAAeSAU1eqShNXpIBTV6tWttyHNd1
 
 
 [Script]
-mutemode = 1 //ÔËĞĞ½Å±¾Ê±ÊÇ·ñ¾²Òô: 0=²»¾²Òô, 1=ÏµÍ³¾²Òô, 2=½ö¾²Òôì­¿á³µÉñ2(²âÊÔÖĞ£¬ÓĞbug)
-if_clear_mailbox = 1 //0=×Ü²¿ÓÊÏäÂúºó·µ»Ø×Ü²¿µ«²»Çå¿ÕÓÊÏä(Ö±½Ó½áÊø½Å±¾), 1=×Ü²¿ÓÊÏäÂúºó·µ»Ø×Ü²¿Çå¿ÕÓÊÏä(È«²¿·Ö½âÎªÁã¼ş)
-double_parts = 0 //0=·ÇË«±¶Åä¼şÌ×, 1=Ë«±¶Åä¼şÌ×
-pop_window = 1 //½Å±¾½áÊøÊ±ÊÇ·ñÏÔÊ¾µ¯´°: 0=²»ÏÔÊ¾µ¯´°, 1=µ¯´°ÏÔÊ¾¼òµ¥Í³¼ÆĞÅÏ¢, 2=µ¯´°ÏÔÊ¾Í³¼ÆĞÅÏ¢¼°¹ÀËãÊÕÒæ(Î´Íê³É)
+mutemode = 1 //è¿è¡Œè„šæœ¬æ—¶æ˜¯å¦é™éŸ³: 0=ä¸é™éŸ³, 1=ç³»ç»Ÿé™éŸ³, 2=ä»…é™éŸ³é£™é…·è½¦ç¥2(æµ‹è¯•ä¸­ï¼Œæœ‰bug) 
+            //Whether to mute when running the script: 0=no mute, 1=system mute, 2=only mute The Crew 2 (testing, there is a bug)
+if_clear_mailbox = 1 //0=æ€»éƒ¨é‚®ç®±æ»¡åè¿”å›æ€»éƒ¨ä½†ä¸æ¸…ç©ºé‚®ç®±(ç›´æ¥ç»“æŸè„šæœ¬), 1=æ€»éƒ¨é‚®ç®±æ»¡åè¿”å›æ€»éƒ¨æ¸…ç©ºé‚®ç®±(å…¨éƒ¨åˆ†è§£ä¸ºé›¶ä»¶)
+                    //0=return to the headquarters after the headquarters mailbox is full but do not clear the mailbox (end the script directly), 
+		    1=return to the headquarters after the headquarters mailbox is full to clear the mailbox (all broken into parts)
+double_parts = 0 //0=éåŒå€é…ä»¶å¥—, 1=åŒå€é…ä»¶å¥—
+                //0=non-double accessory set, 1=double accessory set
+pop_window = 1 //è„šæœ¬ç»“æŸæ—¶æ˜¯å¦æ˜¾ç¤ºå¼¹çª—: 0=ä¸æ˜¾ç¤ºå¼¹çª—, 1=å¼¹çª—æ˜¾ç¤ºç®€å•ç»Ÿè®¡ä¿¡æ¯, 2=å¼¹çª—æ˜¾ç¤ºç»Ÿè®¡ä¿¡æ¯åŠä¼°ç®—æ”¶ç›Š(æœªå®Œæˆ)
+               //Whether to display the pop-up window at the end of the script: 0=Do not display the pop-up window, 
+	       1=The pop-up window displays simple statistical information, 2=The pop-up window displays statistical 
+	       information and estimated revenue (not completed)
 
 Function mute(i)
 	If i = 1
@@ -76,7 +83,7 @@ Function clear_mailbox(i)
 End Function
 
 Function restart_game(i)
-	TracePrint "Warning: ³¤Ê±¼äÎ´¼ì²âµ½ÂÌµÆ£¬ÓÎÏ·ÔÙ¿ª"
+	TracePrint "Warning: é•¿æ—¶é—´æœªæ£€æµ‹åˆ°ç»¿ç¯ï¼Œæ¸¸æˆå†å¼€" ("Warning:If the green light is not detected for a long time, the game starts again")
 	KeyPress "W", 1
 	Delay 500
 	KeyPress "Esc", 1
@@ -116,22 +123,22 @@ Do
 	FindColorEx 800, 350, 1080, 400, "7DDD29", 0, 0.7, X1, Y1
 	
 	If X1> 0 And Y1> 0 Then
-		//ÆğÅÜ
+		//èµ·è·‘ //Start
 		KeyDown "W", 1
 		Delay 1000
-		//2µµ
+		//2æ¡£  //2 gears
 		KeyPress "E", 1
 		Delay 420
-		//3µµ
+		//3æ¡£  //3 gears
 		KeyPress "E", 1
 		Delay 630
-		//4µµ
+		//4æ¡£  //4 gears
 		KeyPress "E", 1
 		Delay 1700
-		//5µµ
+		//5æ¡£  //5 gears
 		KeyPress "E", 1
 		Delay 250
-		//µªÆø
+		//æ°®æ°”  //Nitrogen
 		KeyPress "Shift", 1
 		Delay 9500
 		KeyUp "W", 1
@@ -142,12 +149,12 @@ Do
 	End If
 	
 	If X2> 2 Then
-		//Ò»¾Ö½áÊø
+		//ä¸€å±€ç»“æŸ  //End of a round
 		games = games + 1
 		
 		tmp = games Mod part_game
 		If tmp = 0 Then 
-			//·µ»Ø×Ü²¿Çå¿ÕÓÊÏä
+			//è¿”å›æ€»éƒ¨æ¸…ç©ºé‚®ç®±  //Return to the headquarters to empty the mailbox
 			mailbox_count = mailbox_count + 1
 			X2=0
 			Delay 40000
@@ -172,7 +179,8 @@ Do
 			KeyUp "W", 1
 			Delay 500
 			If if_clear_mailbox = 0
-				MessageBox "½Å±¾ÒÑÔİÍ££¬ÇåÀíÓÊÏä²¢¹Ø±ÕÓÊÏä½çÃæºó°´ ¿Õ¸ñ¼ü ¼ÌĞø½Å±¾"
+				MessageBox "è„šæœ¬å·²æš‚åœï¼Œæ¸…ç†é‚®ç®±å¹¶å…³é—­é‚®ç®±ç•Œé¢åæŒ‰ ç©ºæ ¼é”® ç»§ç»­è„šæœ¬" 
+				            //"The script has been paused. After clearing the mailbox and closing the mailbox interface, press the space bar to continue the script"
 				key = 0
 				While key <> 32
 					key = WaitKey()
@@ -201,14 +209,16 @@ Loop
 Sub OnScriptExit()
 	timeend = Plugin.GetSysInfo.GetDateTime()
 	a = DateDiff("s", start, timeend)
-	TracePrint "½Å±¾ÔËĞĞÁË" & CStr(a) & "Ãë"
-	TracePrint "¹²½øĞĞÁË" & CStr(games) & "¾ÖÓÎÏ·"
-	TracePrint "¹²Çå¿ÕÁË" & CStr(mailbox_count) & "´ÎÓÊÏä"
+	TracePrint "è„šæœ¬è¿è¡Œäº†"//"Script ran" & CStr(a) & "ç§’" //"seconds"
+	TracePrint "å…±è¿›è¡Œäº†" //"Carried out" & CStr(games) & "å±€æ¸¸æˆ"//"Game"
+	TracePrint "å…±æ¸…ç©ºäº†" //"Emptied" & CStr(mailbox_count) & "æ¬¡é‚®ç®±" //"Secondary mailbox/second mailbox"
     mute(mutemode)
     If pop_window = 1
-    	MessageBox "½Å±¾ÔËĞĞÁË " & CStr(a) & " Ãë" & Chr(13) & "¹²½øĞĞÁË " & CStr(games) & " ¾ÖÓÎÏ·" & Chr(13) & "¹²Çå¿ÕÁË " & CStr(mailbox_count) & " ´ÎÓÊÏä"
+    	MessageBox "è„šæœ¬è¿è¡Œäº† " & CStr(a) & " ç§’" & Chr(13) & "å…±è¿›è¡Œäº† " & CStr(games) & " å±€æ¸¸æˆ" & Chr(13) & "å…±æ¸…ç©ºäº† " & CStr(mailbox_count) & " æ¬¡é‚®ç®±"
+	          //"Script ran"         " seconds"       "A total of"                "Games"             "A total of empty"               "Second Mailbox"
 	End If
 	If pop_window = 2
-    	MessageBox "½Å±¾ÔËĞĞÁË " & CStr(a) & " Ãë" & Chr(13) & "¹²½øĞĞÁË " & CStr(games) & " ¾ÖÓÎÏ·" & Chr(13) & "¹²Çå¿ÕÁË " & CStr(mailbox_count) & " ´ÎÓÊÏä"
+    	MessageBox "è„šæœ¬è¿è¡Œäº† " & CStr(a) & " ç§’" & Chr(13) & "å…±è¿›è¡Œäº† " & CStr(games) & " å±€æ¸¸æˆ" & Chr(13) & "å…±æ¸…ç©ºäº† " & CStr(mailbox_count) & " æ¬¡é‚®ç®±"
+	         //"Script ran"          "Seconds"          "A total of"                "Games"         "A total of empty"                 "second mailbox"        
 	End If
 End Sub
